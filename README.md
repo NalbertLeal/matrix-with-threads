@@ -26,3 +26,17 @@
 ### Bugs
 
 ### About the group
+
+|  developer                    |  Nalbert Gabriel Melo Leal        |
+|-------------------------------|-----------------------------------|
+|  GitHub                       |  github.com/nalbertg              |
+|  Bitbucket                    |  bitbucket.org/nalbertg/gremlins  |
+|  personal email               |  nalbertrn@yahoo.com.br           |
+|  academic/profissional email  |  nalbertg@outlook.com             |
+
+|  developer                    |  Juliana Barbosa                    |
+|-------------------------------|-------------------------------------|
+|  GitHub                       |  github.com/julianaabs              |
+|  Bitbucket                    |  https://bitbucket.org/julianaabs/  |
+|  personal email               |  -                                  |
+|  academic/profissional email  |  -                                  |
