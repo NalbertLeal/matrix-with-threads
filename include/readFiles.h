@@ -10,15 +10,18 @@ using namespace std;
 
 class ReadFile {
   public:
-    ReadFile(string fileName1, string fileName2);
+    ReadFile(string fileName1, string fileName2, int matrixSize);
     ~ReadFile();
 
     void readA();
     void readB();
 
+    vector< vector<int>* >& getMatrixA();
+    vector< vector<int>* >& getMatrixB();
+
   private:
-    istream fileMatrixA;
-    istream fileMatrixB;
+    ifstream fileMatrixA;
+    ifstream fileMatrixB;
 
     string fileName1;
     string fileName2;
@@ -28,8 +31,9 @@ class ReadFile {
     vector< vector<int>* > matrixA;
     vector< vector<int>* > matrixB;
 
-    string _isOpen(istream file);
-    void _read(ifstream file, vector< Vector<int> > vec);
+    string _isOpen(ifstream& filename);
+    string _read(ifstream& file);
+    void _createMatrix(string fileString, vector< vector<int>* >& vec);
 };
 
 #endif
