@@ -30,7 +30,7 @@
 |  developer                    |  Nalbert Gabriel Melo Leal        |
 |-------------------------------|-----------------------------------|
 |  GitHub                       |  github.com/nalbertg              |
-|  Bitbucket                    |  bitbucket.org/nalbertg/gremlins  |
+|  Bitbucket                    |  bitbucket.org/nalbertg           |
 |  personal email               |  nalbertrn@yahoo.com.br           |
 |  academic/profissional email  |  nalbertg@outlook.com             |
 
