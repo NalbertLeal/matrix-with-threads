@@ -22,23 +22,23 @@ ReadFile::ReadFile(string fileName1, string fileName2, int matrixSize) {
   this->matrixSize = matrixSize;
 
   this->fileMatrixA.open(this->fileName1);
-  cout << fileName1 << ": " << _isOpen(this->fileMatrixA);
+  cout << fileName1 << ": " << _isOpen(this->fileMatrixA) << "\n";
 
   this->fileMatrixB.open(this->fileName2);
-  cout << fileName2 << ": " << _isOpen(this->fileMatrixB);
+  cout << fileName2 << ": " << _isOpen(this->fileMatrixB) << "\n";
 }
 
 /**
 * @brief
 */
 ReadFile::~ReadFile() {
-  for(unsigned int line = 0; line < this->matrixA.size(); line++) {
-    delete this->matrixA[line];
-  }
-
-  for(unsigned int line = 0; line < this->matrixB.size(); line++) {
-    delete this->matrixB[line];
-  }
+  // for(unsigned int line = 0; line < this->matrixA.size(); line++) {
+  //   delete this->matrixA[line];
+  // }
+  //
+  // for(unsigned int line = 0; line < this->matrixB.size(); line++) {
+  //   delete this->matrixB[line];
+  // }
 }
 
 /**
@@ -75,22 +75,15 @@ string ReadFile::_isOpen(ifstream& file) {
 */
 string ReadFile::_read(ifstream& file) {
   string fileString = "";
-  string line;
-  bool isFirstLine = true;
+  string line = "";
+  int isFirstLine = 0;
 
-  while(!(file.eof())) {
-    line = "";
-    getline(file, line);
-
-    if(isFirstLine) {
-      isFirstLine = false;
+  for(unsigned int index = 0; index < (this->matrixSize * this->matrixSize); index++) {
+    file >> line;
+    if(isFirstLine < 2) {
+      isFirstLine++;
       continue;
     }
-
-    if(line == "") {
-      continue;
-    }
-
     fileString = fileString + line;
   }
 

@@ -23,17 +23,13 @@ int main() {
 
   unique_ptr<ReadFile> rf(new ReadFile(matrixFileA, matrixFileB, matrixSizeInt));
 
-  cout << "test2\n";
-
   rf->readA();
   rf->readB();
-
-  cout << "test3\n";
 
   vector< vector<int>* > matrixA = rf->getMatrixA();
   vector< vector<int>* > matrixB = rf->getMatrixB();
 
-  cout << matrixA[1] << std::endl;
+  cout << matrixB[0][0][0] << std::endl;
 
   for(unsigned int line = 0; line < matrixA.size(); line++) {
     delete matrixA[line];
