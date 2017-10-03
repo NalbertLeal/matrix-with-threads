@@ -123,3 +123,11 @@ void ReadFile::_createMatrix(string fileString, vector< vector<int>* >& vec) {
     }
   }
 }
+
+vector< vector<int>* >& ReadFile::getMatrixA() {
+  return this->matrixA;
+}
+
+vector< vector<int>* >& ReadFile::getMatrixB() {
+  return this->matrixB;
+}
