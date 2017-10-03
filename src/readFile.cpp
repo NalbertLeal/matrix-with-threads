@@ -84,7 +84,7 @@ string ReadFile::_read(ifstream& file) {
       isFirstLine++;
       continue;
     }
-    fileString = fileString + line;
+    fileString = fileString + " " + line;
   }
 
   return fileString;
@@ -93,13 +93,13 @@ string ReadFile::_read(ifstream& file) {
 /**
 * @brief
 */
-void ReadFile::_createMatrix(string fileString, vector< vector<int>* >& vec) {
+void ReadFile::_createMatrix(string fileString, vector< vector<int> >& vec) {
   stringstream ss(fileString);
 
   string stringElement = "";
 
   for(int line = 0; line < this->matrixSize; line++) {
-    vec.push_back( new vector<int>(this->matrixSize) );
+    vector<int> temp;
     for(int col = 0; col < this->matrixSize; col++) {
       ss >> stringElement;
 
@@ -112,15 +112,19 @@ void ReadFile::_createMatrix(string fileString, vector< vector<int>* >& vec) {
         continue; // the stringElement is a "breakLine" character, not a number, so get net element
       }
 
-      vec[line]->push_back( atoi(stringElement.c_str()) );
+      // cout << stringElement << endl;
+      temp.push_back( atoi(stringElement.c_str()) );
+      // vec[line]->push_back( atoi(stringElement.c_str()) );
+      vec.push_back( temp );
+      // cout << vec[line][0] << endl;
     }
   }
 }
 
-vector< vector<int>* >& ReadFile::getMatrixA() {
+vector< vector<int> >& ReadFile::getMatrixA() {
   return this->matrixA;
 }
 
-vector< vector<int>* >& ReadFile::getMatrixB() {
+vector< vector<int> >& ReadFile::getMatrixB() {
   return this->matrixB;
 }

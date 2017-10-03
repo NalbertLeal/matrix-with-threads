@@ -26,18 +26,18 @@ int main() {
   rf->readA();
   rf->readB();
 
-  vector< vector<int>* > matrixA = rf->getMatrixA();
-  vector< vector<int>* > matrixB = rf->getMatrixB();
+  vector< vector<int> > matrixA = rf->getMatrixA();
+  vector< vector<int> > matrixB = rf->getMatrixB();
 
-  cout << matrixB[0][0][0] << std::endl;
+  cout << matrixB[0][0] << std::endl;
 
-  for(unsigned int line = 0; line < matrixA.size(); line++) {
-    delete matrixA[line];
-  }
-
-  for(unsigned int line = 0; line < matrixB.size(); line++) {
-    delete matrixB[line];
-  }
+  // for(unsigned int line = 0; line < matrixA.size(); line++) {
+  //   delete matrixA[line];
+  // }
+  //
+  // for(unsigned int line = 0; line < matrixB.size(); line++) {
+  //   delete matrixB[line];
+  // }
 
   return 0;
 }

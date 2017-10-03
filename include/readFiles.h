@@ -17,8 +17,8 @@ class ReadFile {
     void readA();
     void readB();
 
-    vector< vector<int>* >& getMatrixA();
-    vector< vector<int>* >& getMatrixB();
+    vector< vector<int> >& getMatrixA();
+    vector< vector<int> >& getMatrixB();
 
   private:
     ifstream fileMatrixA;
@@ -29,12 +29,12 @@ class ReadFile {
 
     int matrixSize;
 
-    vector< vector<int>* > matrixA;
-    vector< vector<int>* > matrixB;
+    vector< vector<int> > matrixA;
+    vector< vector<int> > matrixB;
 
     string _isOpen(ifstream& filename);
     string _read(ifstream& file);
-    void _createMatrix(string fileString, vector< vector<int>* >& vec);
+    void _createMatrix(string fileString, vector< vector<int> >& vec);
 };
 
 #endif
