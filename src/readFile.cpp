@@ -66,7 +66,7 @@ string ReadFile::_isOpen(ifstream& file) {
     return "file is open.";
   }
   else {
-    return "file not closed.";
+    return "file is closed.";
   }
 }
 
