@@ -17,8 +17,6 @@ vector< vector<int> >& SincronousMatrix::getMatrixC() {
 }
 
 void SincronousMatrix::run() {
-  cout << this->matrixA.size() << endl;
-    cout << this->matrixA[0].size() << endl;
   for(unsigned int index1 = 0; index1 < this->matrixA.size(); index1++) {
     // line on matrixA
 
@@ -30,11 +28,8 @@ void SincronousMatrix::run() {
         // col on matrixB
         counter = (this->matrixA[index1][index3] * this->matrixB[index3][index2]) + counter;
       }
-      cout << counter << " ";
       tempMatrixCLine.push_back(counter);
     }
-
-    cout << "\n";
 
     this->matrixC.push_back(tempMatrixCLine);
   }

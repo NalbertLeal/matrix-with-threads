@@ -2,6 +2,10 @@
 #include <memory>
 #include <sstream>
 #include <string>
+#include <chrono>
+#include <time.h>
+#include <stdio.h>
+#include <math.h>
 
 #include "readFile.h"
 #include "sincronousMatrix.h"
@@ -46,22 +50,56 @@ int main(int argc, char* argv[]) {
   vector< vector<int> > matrixA = rf->getMatrixA();
   vector< vector<int> > matrixB = rf->getMatrixB();
 
-  cout << matrixA[0][0] << endl;
-
   if(argc == 2) {
     // Is sequencial.
 
-    // multiply the matrix
-    SincronousMatrix* sm = new SincronousMatrix(matrixA, matrixB);
-    sm->run();
-    vector< vector<int> > matrixC = sm->getMatrixC();
+    // vector< double > times(20);
+    vector< long int > times(20);
 
-    cout << matrixC[0][0] << endl;
+    for(int index = 0; index < 20; index++) {
+      // get time when start a iteration
+      auto start = std::chrono::high_resolution_clock::now();
 
-    string fileOutPath = "outputs/Out" + matrixSizeString + "x" + matrixSizeString + ".txt";
-    FileWriter fw(matrixC, fileOutPath);
+      SincronousMatrix* sm = new SincronousMatrix(matrixA, matrixB);
+      sm->run();
+      vector< vector<int> > matrixC = sm->getMatrixC();
 
-    fw.write();
+      string fileOutPath = "outputs/Out" + matrixSizeString + "x" + matrixSizeString + ".txt";
+      FileWriter fw(matrixC, fileOutPath);
+
+      fw.write();
+
+      // get time when finish a iteration
+      auto end = std::chrono::high_resolution_clock::now();
+
+      auto elapsedtime = std::chrono::duration_cast<std::chrono::nanoseconds>(end-start).count();
+      times[index] = elapsedtime;
+    }
+
+    // get averenge time.
+    long int averange = 0;
+    for(int index = 0; index < 20; index++) {
+      averange = averange + times[index];
+    }
+    averange = averange / 20;
+    cout << ">>> Media: " << averange << endl;
+
+    long int dp = 0;
+    for(int index = 0; index < 20; index++) {
+      dp = dp + (times[index] - averange);
+    }
+    dp = dp / 20;
+    dp = sqrt(dp);
+    cout << ">>> Desvio padrão: " << dp << endl;
+
+    ofstream fileData("outputs/measure.dat");
+    fileData << "Media: ";
+    fileData << averange;
+    fileData << " nanoseconds \n";
+    fileData << "dp: ";
+    fileData << dp;
+    fileData << "\n\n";
+    fileData << "note: 1 second = 1000000000 nanoseconds = 10^9 nanoseconds";
   }
   if(argc == 3) {
     // Is concurrent.
