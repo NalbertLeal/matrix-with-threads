@@ -5,6 +5,7 @@
 
 #include "readFiles.h"
 #include "sincronousMatrix.h"
+#include "fileWriter.h"
 
 using namespace std;
 
@@ -51,11 +52,12 @@ int main(int argc, char* argv[]) {
     // multiply the matrix
     SincronousMatrix* sm = new SincronousMatrix(matrixA, matrixB);
     sm->run();
-    vector< vector<int> > matrixB = sm->getMatrixC();
+    vector< vector<int> > matrixC = sm->getMatrixC();
 
-    cout << matrixB[0][0] << endl;
+    string fileOutPath = "outputs/Out" + matrixSizeString + "x" + matrixSizeString + ".txt";
+    FileWriter fw(matrixC, fileOutPath);
 
-    // write to files
+    fw.write();
   }
   if(argc == 3) {
     // Is concurrent.
