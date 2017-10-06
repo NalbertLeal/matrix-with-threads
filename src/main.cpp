@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 
-#include "readFiles.h"
+#include "readFile.h"
 #include "sincronousMatrix.h"
 #include "fileWriter.h"
 
@@ -46,6 +46,8 @@ int main(int argc, char* argv[]) {
   vector< vector<int> > matrixA = rf->getMatrixA();
   vector< vector<int> > matrixB = rf->getMatrixB();
 
+  cout << matrixA[0][0] << endl;
+
   if(argc == 2) {
     // Is sequencial.
 
@@ -53,6 +55,8 @@ int main(int argc, char* argv[]) {
     SincronousMatrix* sm = new SincronousMatrix(matrixA, matrixB);
     sm->run();
     vector< vector<int> > matrixC = sm->getMatrixC();
+
+    cout << matrixC[0][0] << endl;
 
     string fileOutPath = "outputs/Out" + matrixSizeString + "x" + matrixSizeString + ".txt";
     FileWriter fw(matrixC, fileOutPath);
