@@ -1,3 +1,12 @@
+/**
+    Purpose:
+
+    @author Juliana Barbosa, Nalbert Gabriel
+    @version 1.0 10/5/2017
+
+*/
+
+
 #include <vector>
 
 #include "sincronousMatrix.h"
@@ -14,6 +23,13 @@ SincronousMatrix::~SincronousMatrix() {
 vector< vector<int> >& SincronousMatrix::getMatrixC() {
   return this->matrixC;
 }
+
+/**
+    It performs the multiplication of two matrices in a synchronous way in order 
+    to analyze the performance of the application.
+    @param
+*/
+
 
 void SincronousMatrix::run() {
   for(unsigned int index1 = 0; index1 < this->matrixA.size(); index1++) {
