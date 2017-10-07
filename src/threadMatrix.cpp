@@ -1,7 +1,7 @@
 /**
-    Purpose: Class to perform the multiplication using threads.
-    @author Juliana Barbosa, Nalbert Gabriel
-    @version 1.0 10/5/2017
+*    Purpose: Class to perform the multiplication using threads.
+*    @author Juliana Barbosa, Nalbert Gabriel
+*    @version 1.0 10/5/2017
 */
 
 #include <thread>

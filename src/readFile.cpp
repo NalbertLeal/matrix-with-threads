@@ -1,3 +1,9 @@
+/**
+*    Purpose: Class to read the files of matrixes.
+*    @author Juliana Barbosa, Nalbert Gabriel
+*    @version 1.0 10/5/2017
+*/
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -95,15 +101,6 @@ void ReadFile::_createMatrix(string fileString, vector< vector<int> >& vec) {
   for(int line = 0; line < this->matrixSize; line++) {
     vector<int> temp;
     for(int col = 0; col < this->matrixSize; col++) {
-
-      // int elem;
-      // for(int index = 0; index <= line*col; index++) {
-      //   stringstream ss(fileString)
-      //   ss >> elem;
-      // }
-      //
-      // temp.push_back(elem);
-
 
       ss >> stringElement;
 

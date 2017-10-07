@@ -1,7 +1,7 @@
 /**
-    Purpose: Main class.
-    @author Juliana Barbosa, Nalbert Gabriel
-    @version 1.0 10/5/2017
+*    Purpose: Main class.
+*    @author Juliana Barbosa, Nalbert Gabriel
+*    @version 1.0 10/5/2017
 */
 
 #include <iostream>
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
   }
 
   /**
-        Throw an error, the input isn't multiple of 2.
+  *      Throw an error, the input isn't multiple of 2.
   */
 
   if((atoi(argv[1]) % 2) != 0) {
@@ -62,9 +62,9 @@ int main(int argc, char* argv[]) {
   vector< vector<int> > matrixB = rf->getMatrixB();
 
   /**
-  
-      Is sequencial.
-
+  *
+  *    Is sequencial.
+  *
   */
 
   if(argc == 2) {
@@ -73,9 +73,9 @@ int main(int argc, char* argv[]) {
     vector< long int > times(20);
 
     /**
-    
-        Get time when start a iteration.
-
+    *
+    *    Get time when start a iteration.
+    *
     */
 
     for(int index = 0; index < 20; index++) {
@@ -94,9 +94,9 @@ int main(int argc, char* argv[]) {
       delete sm;
 
       /**
-      
-        Get time when finish a iteration.
-
+      *
+      *  Get time when finish a iteration.
+      *
       */
       auto end = std::chrono::high_resolution_clock::now();
 
@@ -105,9 +105,9 @@ int main(int argc, char* argv[]) {
     }
 
     /** 
-
-        Get averenge time.
-
+    *
+    *    Get averenge time.
+    *
     */
 
     long int averange = 0;
@@ -137,9 +137,9 @@ int main(int argc, char* argv[]) {
   if(argc == 3) {
 
     /** 
-
-        Is concurrent.
-
+    *
+    *    Is concurrent.
+    *
     */
 
     vector< long int > times(20);
@@ -147,9 +147,9 @@ int main(int argc, char* argv[]) {
     for(int index = 0; index < 20; index++) {
 
     /** 
-
-        Get time when start a iteration.
-
+    *
+    *    Get time when start a iteration.
+    *
     */
       auto start = std::chrono::high_resolution_clock::now();
 
@@ -165,9 +165,9 @@ int main(int argc, char* argv[]) {
       delete tm;
 
       /** 
-
-        Get time when finish a iteration.
-
+      *
+      *  Get time when finish a iteration.
+      *
       */
 
       auto end = std::chrono::high_resolution_clock::now();
@@ -177,10 +177,10 @@ int main(int argc, char* argv[]) {
     }
 
     /** 
-
-        Get averenge time.
-
-      */
+    *
+    *   Get averenge time.
+    *
+    */
 
     long int averange = 0;
     for(int index = 0; index < 20; index++) {
