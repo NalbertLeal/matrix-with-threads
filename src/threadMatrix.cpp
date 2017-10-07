@@ -29,15 +29,25 @@ ThreadMatrix::~ThreadMatrix() {
   
 }
 
+/**
+*
+*   Get the result matrix
+*   @param
+*   @return matrixC
+*
+*/
+
 vector< vector<int> >& ThreadMatrix::getMatrixC() {
   return this->matrixC;
 }
 
 /**
-  
-  See how many threads will be created, select what thread will receive what part of the matrix and executes with join().
-
-  @param threads_number   Number of threads to be created.
+*  
+*  See how many threads will be created, select what thread will receive what part of the matrix and executes with join().
+*
+*  @param threads_number   Number of threads to be created.
+*  @return
+*
 */
 
 void ThreadMatrix::run(unsigned int threads_number) {
@@ -87,19 +97,18 @@ void ThreadMatrix::run(unsigned int threads_number) {
 }
 
 /**
-
-  Static method which is called as thread. 
-  Performs the multiplication on the parts of the threads which was selected on the previous method.
-
-  @param xi   Inicial subvector
-  @param yi   Inicial subvector element
-  @param xf   Final subvector
-  @param yf   Final subvector element
-  @param line_size   Size of the vector
-  @param matrixA  Reference of matrix A
-  @param matrixB  Reference of matrix B
-  @param matrixC  Reference of matrix C
-
+*  Static method which is called as thread. 
+*  Performs the multiplication on the parts of the threads which was selected on the previous method.
+*
+*  @param xi   Inicial subvector
+*  @param yi   Inicial subvector element
+*  @param xf   Final subvector
+*  @param yf   Final subvector element
+*  @param line_size   Size of the vector
+*  @param matrixA  Reference of matrix A
+*  @param matrixC  Reference of matrix C
+*  @return
+*
 */
 
 void ThreadMatrix::_thread_run(unsigned int xi, unsigned int yi, unsigned int xf, unsigned int yf, unsigned int line_size, vector< vector<int> >& matrixA, vector< vector<int> >& matrixB, vector< vector<int> >& matrixC) {
