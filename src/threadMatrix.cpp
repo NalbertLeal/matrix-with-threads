@@ -1,3 +1,9 @@
+/**
+    Purpose: Class to perform the multiplication using threads.
+    @author Juliana Barbosa, Nalbert Gabriel
+    @version 1.0 10/5/2017
+*/
+
 #include <thread>
 #include <vector>
 
@@ -16,9 +22,11 @@ ThreadMatrix::ThreadMatrix(vector< vector<int> >& matrixA, vector< vector<int> >
     this->matrixC.push_back(temp);
   }
 }
-
+/**
+    Empty constructor
+ */
 ThreadMatrix::~ThreadMatrix() {
-  /* EMPTY */
+  
 }
 
 vector< vector<int> >& ThreadMatrix::getMatrixC() {
@@ -63,8 +71,7 @@ void ThreadMatrix::run(unsigned int threads_number) {
     yf = counter_y;
 
     thread_vector[index] = new thread(_thread_run, xi, yi, xf, yf, this->matrixA.size(), ref(this->matrixA), ref(this->matrixB), ref(this->matrixC));;
-    // t.join();
-    // t.detach();
+    
   }
 
   for(unsigned int index = 0; index < threads_number; index++) {
