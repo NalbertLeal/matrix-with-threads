@@ -1,3 +1,9 @@
+/**
+    Purpose: Main class.
+    @author Juliana Barbosa, Nalbert Gabriel
+    @version 1.0 10/5/2017
+*/
+
 #include <iostream>
 #include <memory>
 #include <sstream>
@@ -34,14 +40,18 @@ int main(int argc, char* argv[]) {
   cout << ">>> In case of 2 inputs the matrix multiplication will be parallel.\n";
     return 1;
   }
+
+  /**
+        Throw an error, the input isn't multiple of 2.
+  */
+
   if((atoi(argv[1]) % 2) != 0) {
-    // error, the input isn't multiple of 2.
+
     cout << ">>> The command line input isn't multiple of 2.\n";
     return 1;
   }
 
   string matrixSizeString = argv[1];
-  // cin >> matrixSizeString;
 
   ReadFile* rf = FilesMatrix(matrixSizeString);
 
@@ -51,13 +61,25 @@ int main(int argc, char* argv[]) {
   vector< vector<int> > matrixA = rf->getMatrixA();
   vector< vector<int> > matrixB = rf->getMatrixB();
 
+  /**
+  
+      Is sequencial.
+
+  */
+
   if(argc == 2) {
-    // Is sequencial.
+    
 
     vector< long int > times(20);
 
+    /**
+    
+        Get time when start a iteration.
+
+    */
+
     for(int index = 0; index < 20; index++) {
-      // get time when start a iteration
+      
       auto start = std::chrono::high_resolution_clock::now();
 
       SincronousMatrix* sm = new SincronousMatrix(matrixA, matrixB);
@@ -71,14 +93,23 @@ int main(int argc, char* argv[]) {
 
       delete sm;
 
-      // get time when finish a iteration
+      /**
+      
+        Get time when finish a iteration.
+
+      */
       auto end = std::chrono::high_resolution_clock::now();
 
       auto elapsedtime = std::chrono::duration_cast<std::chrono::seconds>(end-start).count();
       times[index] = elapsedtime;
     }
 
-    // get averenge time.
+    /** 
+
+        Get averenge time.
+
+    */
+
     long int averange = 0;
     for(int index = 0; index < 20; index++) {
       averange = averange + times[index];
@@ -104,12 +135,22 @@ int main(int argc, char* argv[]) {
     fileData << "note: 1 second = 1000000000 nanoseconds = 10^9 nanoseconds";
   }
   if(argc == 3) {
-    // Is concurrent.
+
+    /** 
+
+        Is concurrent.
+
+    */
 
     vector< long int > times(20);
 
     for(int index = 0; index < 20; index++) {
-      // get time when start a iteration
+
+    /** 
+
+        Get time when start a iteration.
+
+    */
       auto start = std::chrono::high_resolution_clock::now();
 
       ThreadMatrix* tm = new ThreadMatrix(matrixA, matrixB);
@@ -123,14 +164,24 @@ int main(int argc, char* argv[]) {
 
       delete tm;
 
-      // get time when finish a iteration
+      /** 
+
+        Get time when finish a iteration.
+
+      */
+
       auto end = std::chrono::high_resolution_clock::now();
 
       auto elapsedtime = std::chrono::duration_cast<std::chrono::seconds>(end-start).count();
       times[index] = elapsedtime;
     }
 
-    // get averenge time.
+    /** 
+
+        Get averenge time.
+
+      */
+
     long int averange = 0;
     for(int index = 0; index < 20; index++) {
       averange = averange + times[index];
