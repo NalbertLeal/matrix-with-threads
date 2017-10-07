@@ -88,7 +88,8 @@ void ThreadMatrix::run(unsigned int threads_number) {
 
 /**
 
-  Static method which is called as thread. Performs the multiplication on the parts of the threads which was selected on the previous method.
+  Static method which is called as thread. 
+  Performs the multiplication on the parts of the threads which was selected on the previous method.
 
   @param xi   Inicial subvector
   @param yi   Inicial subvector element
