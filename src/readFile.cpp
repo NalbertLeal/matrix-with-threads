@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string>
 
-#include "readFiles.h"
+#include "readFile.h"
 
 using namespace std;
 
@@ -32,13 +32,7 @@ ReadFile::ReadFile(string fileName1, string fileName2, int matrixSize) {
 * @brief
 */
 ReadFile::~ReadFile() {
-  // for(unsigned int line = 0; line < this->matrixA.size(); line++) {
-  //   delete this->matrixA[line];
-  // }
-  //
-  // for(unsigned int line = 0; line < this->matrixB.size(); line++) {
-  //   delete this->matrixB[line];
-  // }
+  /* EMPTY */
 }
 
 /**
@@ -101,6 +95,16 @@ void ReadFile::_createMatrix(string fileString, vector< vector<int> >& vec) {
   for(int line = 0; line < this->matrixSize; line++) {
     vector<int> temp;
     for(int col = 0; col < this->matrixSize; col++) {
+
+      // int elem;
+      // for(int index = 0; index <= line*col; index++) {
+      //   stringstream ss(fileString)
+      //   ss >> elem;
+      // }
+      //
+      // temp.push_back(elem);
+
+
       ss >> stringElement;
 
       for(unsigned int index = 0; index < stringElement.length(); index++) {
@@ -115,9 +119,9 @@ void ReadFile::_createMatrix(string fileString, vector< vector<int> >& vec) {
       // cout << stringElement << endl;
       temp.push_back( atoi(stringElement.c_str()) );
       // vec[line]->push_back( atoi(stringElement.c_str()) );
-      vec.push_back( temp );
       // cout << vec[line][0] << endl;
     }
+    vec.push_back( temp );
   }
 }
 
